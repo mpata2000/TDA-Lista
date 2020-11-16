@@ -39,7 +39,7 @@ Este trabajo es el resultado de lo pedido por la catedra de Mendez de algoritmos
 
 ## **Compilacion:**
 
-----
+
 Para compilar y usar este TDA se utiliza un makefile.
 
 **La linea principal de compilacion es:**
@@ -192,7 +192,6 @@ Esta es una funcion interna del make la cual es llamada por `make $(EXEC)`. Solo
 
 ## **Funcionamiento:**
 
-----
 
 ### **pruebas.c (el main):**
 
@@ -240,7 +239,7 @@ Un iterador interno tiene que recivir si o si una lista no vacia y una funcion v
 
 ## **Teorico:**
 
-----
+
 
 ### **TDA Lista-Teorico**
 
