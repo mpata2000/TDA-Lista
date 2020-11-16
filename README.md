@@ -1,6 +1,41 @@
 # **TDA Lista**
 
-[TOC]
+Este trabajo es el resultado de lo pedido por la catedra de Mendez de algoritmos dos que es una combinacion de TDA Lista,Cola y Pila, y adems cuenta con un Iterador externo y interno. Se realizaron 191 pruebas sobre mi implementacion del TDA paa comprobar que su comportamiento se el correcto.
+
+## **Tabla de Contenidos**
+
+- [**TDA Lista**](#tda-lista)
+  - [**Tabla de Contenidos**](#tabla-de-contenidos)
+  - [**Compilacion:**](#compilacion)
+  - [**Makefile:**](#makefile)
+    - [**Comandos:**](#comandos)
+      - [**make o make $(EXEC):**](#make-o-make-exec)
+      - [**make debug:**](#make-debug)
+      - [**make test:**](#make-test)
+      - [**make run:**](#make-run)
+      - [**make zip:**](#make-zip)
+      - [**make clean:**](#make-clean)
+      - [**make %.o:**](#make-o)
+  - [**Funcionamiento:**](#funcionamiento)
+    - [**pruebas.c (el main):**](#pruebasc-el-main)
+    - [**Puntero NULL**](#puntero-null)
+    - [**Creacion de Lista:**](#creacion-de-lista)
+    - [**Lista vacia:**](#lista-vacia)
+    - [**Funciones equivalentes:**](#funciones-equivalentes)
+    - [**Listas como pilas:**](#listas-como-pilas)
+    - [**Busqueda y liberacion de nodos:**](#busqueda-y-liberacion-de-nodos)
+    - [**Creacion del iterador externo:**](#creacion-del-iterador-externo)
+    - [**Iterador interno:**](#iterador-interno)
+  - [**Teorico:**](#teorico)
+    - [**TDA Lista-Teorico**](#tda-lista-teorico)
+      - [**¿Qué es lo que entendés por una lista?**](#qué-es-lo-que-entendés-por-una-lista)
+      - [**¿Cuáles son las diferencias entre ser simple o doblemente enlazada?**](#cuáles-son-las-diferencias-entre-ser-simple-o-doblemente-enlazada)
+      - [**¿Cuáles son las características fundamentales de las Pilas?**](#cuáles-son-las-características-fundamentales-de-las-pilas)
+      - [**¿Cuáles son las características fundamentales de las Colas?**](#cuáles-son-las-características-fundamentales-de-las-colas)
+    - [**Iterador-Teorico**](#iterador-teorico)
+      - [**¿Qué es un iterador? ¿Cuál es su función?**](#qué-es-un-iterador-cuál-es-su-función)
+      - [**¿En qué se diferencia un iterador interno de uno externo?**](#en-qué-se-diferencia-un-iterador-interno-de-uno-externo)
+  - [**Creditos:**](#creditos)
 
 ## **Compilacion:**
 
@@ -159,6 +194,107 @@ Esta es una funcion interna del make la cual es llamada por `make $(EXEC)`. Solo
 
 ----
 
+### **pruebas.c (el main):**
+
+Si el main recive mas de un argumento ela pruebas que se van a correr son las prueba de `lista_minipruebas.c` dada por la catedra. Si no se recive nada las pruebas que se van a correr son las que yo cree.
+
+### **Puntero NULL**
+
+Ninguna de las funciones que recive punteros va a funcionar si el puntero enviado es NULL.
+
+### **Creacion de Lista:**
+
+Cuando se crea una lista se crea vacia. Con cantidad en 0 y ambos nodos apuntando a NULL. **Una lista creada siempre tiene que ser destuida.**
+
+### **Lista vacia:**
+
+Una lista esta vacia cuandor la cantidad es cero a alguno de sus dos nodos apunta a NULL( *Se utiliza o ya que si algun nodo apunta a NULL significa que algo salio mal y no sedeberia utilizar* ).
+
+- A una lista vacia se le puede insertar un elemento con cualquier funcion de insertar que se desee y va a parar de estar vacia.
+- Con una lisa vacia no se puede borrar ni leer ningun tipo de elemento.
+- Si se borra el ultimo elemento restante de la lista queda vacia.
+
+### **Funciones equivalentes:**
+
+- `lista_insertar_en_posicion(lista,elemento,posicion_invalida)` == `lista_insertar(lista,elemento)`
+- `lista_insertar_en_posicion(lista,elemento,0)` == `lista_apilar(lista,elemento)`
+- `lista_encolar(lista,elemento)` == `lista_insertar(lista,elemento)`
+- `lista_borrar_de_posicion(lista,posicion_invalid/ultima)` == `lista_borrar(lista)`
+- `lista_borrar_de_posicion(lista,0)` == `lista_desencolar(lista)`
+
+### **Listas como pilas:**
+
+En las pilas el primer nodo se considera como el elemento en el tope de la pila,o sea el ultimo insertado. Y el ultimo elemento es el que su siguiente esta apuntando a NULL.
+
+### **Busqueda y liberacion de nodos:**
+
+Para la busqueda y liberacion de nodos se utilizaron funciones recursivas.
+
+### **Creacion del iterador externo:**
+
+Si al iterador se le manda una lista vacia, el iterador se va a crear apuntado a esa lista pero con un nodo coriente apuntado a NULL. **Se tiene que destuir el iterador**
+
+### **Iterador interno:**
+
+Un iterador interno tiene que recivir si o si una lista no vacia y una funcion valida.
+
 ## **Teorico:**
 
 ----
+
+### **TDA Lista-Teorico**
+
+#### **¿Qué es lo que entendés por una lista?**
+
+Un TDA lista sirve para agrupar elementos donde yo puedo agregar y borrar elementos en la posicion en cualquier posicion arbitraria
+
+#### **¿Cuáles son las diferencias entre ser simple o doblemente enlazada?**
+
+Eun una lista simplemente enlazada cada nodo solo tiene una referencia a su nodo siguiente mientras que una lista doblemente enlazada cada nodo tiene referiencia al siguente como al anterior.
+
+#### **¿Cuáles son las características fundamentales de las Pilas?**
+
+La caracteristica fundamental de las pilas es LIFO ( last in, first out) que se refiere a que el ultimo elemento que entro es el plrmero en salir. Por eso se dice que los elementos se apilan y forman una pila.
+Las dos operaciones principales son:
+
+- `apilar()` o `push()`: pone un elemento en el tope de la pila.
+- `desapilar()` o `pop()`: saca un elemento del tope de la pila.
+
+#### **¿Cuáles son las características fundamentales de las Colas?**
+
+La caracteristica fundamental de las pilas es FIFO ( first in, first out) que se refiere a que el primer elemento que entro es el primero en salir.
+Las dos operaciones principales son:
+
+- `encolar()` o `enqueue()`: pone un elemento al final de la cola.
+- `desencolar()` o `dequeue()`: saca el primer elemento de la cola
+
+### **Iterador-Teorico**
+
+#### **¿Qué es un iterador? ¿Cuál es su función?**
+
+Es una estructura o TDA que permite recorrer los datos almacenados en un TDA sin tener que ser consientes de la estructura del mismo.
+
+#### **¿En qué se diferencia un iterador interno de uno externo?**
+
+- Interador Interno:
+  - Un iteradro interno permite recorrer todos los elementos de un TDA sin tener que controlar el ciclo en el cual se puede recorrer el mismo.
+  - Funcion que suele utilizar:
+
+```c
+tipo_retorno lista_iterador(lista_t* lista,bool funcion(void* elemento,void* extra),void* extra);
+```
+
+- Iterador Externo:
+  - Un iterador externo es un TDA que provee un set de primitivas especiales para recorrer una lista. Esta primitivas suelen ser:
+    - `crear()`
+    - `primero()`
+    - `siguiente()`
+    - `hay_siguiente()`
+    - `elemento_acutal()`
+    - `destruir()`
+  - El iterador externo puede ser implementado como un objeto opaco que mantiene un puntero a  un elemento de la lista. Cada vez que avance solo hay que pedirle que se mueva un elemento, reduciendo la complejidad ya que sin iterador se tendria que recorrer todos los elementos hasta el actual+1.
+  - El iterador externo debe saber como esta representada la lista ( *implementacion en conjunto* ).
+
+## **Creditos:**
+
+Los creditos de este hermoso TDA Lista son mios(Martin Pata AKA Patineta) y un poco corrector (Santiago Fernadez) que esta vez no voy a rick rollear.
