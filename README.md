@@ -60,7 +60,7 @@ Para compilar y usar este TDA se utiliza un makefile.
 
 ## **Makefile:**
 
-----
+
 
 ```makefile
 CC = gcc
