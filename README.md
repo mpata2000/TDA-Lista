@@ -296,4 +296,4 @@ tipo_retorno lista_iterador(lista_t* lista,bool funcion(void* elemento,void* ext
 
 ## **Creditos:**
 
-Los creditos de este hermoso TDA Lista son mios(Martin Pata AKA Patineta) y un poco corrector (Santiago Fernadez) que esta vez no voy a rick rollear.
+Los creditos de este hermoso TDA Lista son mios(Martin Pata AKA Patineta) y un poco del corrector (Santiago Fernadez) que esta vez no voy a rick rollear.
